@@ -6,7 +6,7 @@ class Layout extends React.Component {
   render () {
     return (
       <div>
-      <NavigationBar />
+     	
       <Greetings />
       </div>
     )
