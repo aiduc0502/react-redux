@@ -1,6 +1,18 @@
 import React from 'react';
-import {BrowserRouter as  Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import App from './views/Layout';
-export default (
-  <Route path='/' exact component={App}  />
-  )
+class Routes extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <Switch>
+            <Route path='/' exact component={App} />
+
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
+}
+export default Routes
