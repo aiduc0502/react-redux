@@ -4,14 +4,17 @@ import App from './Layout';
 import SignUp from './../components/signup/signup'
 import Greeting from './../components/Greetings/Greetings'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
-
+import rootReducer from './../root-reducer'
 class Routes extends React.Component {
   render() {
     const store = createStore(
-      (state = {}) => state,
-      applyMiddleware(thunk)
+      rootReducer,
+      compose(
+        applyMiddleware(thunk),
+        window.devToolsExtension ? window.devToolsExtension() : f => f
+      )
     );
     return (
       <Provider store = {store}>
